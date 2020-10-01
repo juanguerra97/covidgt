@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CovidGtAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,6 @@ namespace CovidGtAPI
     {
          
         DbSet<CasoCovid> CasosCovid { get; set; }
-
+        public Task GuardarCambios();
     }
 }

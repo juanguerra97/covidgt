@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CovidGtAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,6 +46,11 @@ namespace CovidGtAPI
                 });
 
             });
+        }
+
+        public async Task GuardarCambios()
+        {
+            await this.SaveChangesAsync();
         }
 
     }
