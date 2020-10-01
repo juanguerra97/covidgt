@@ -19,6 +19,13 @@ namespace CovidGtAPI.Common
                 StatusCode = (int)HttpStatusCode.NotFound
             };
             context.ExceptionHandled = true;
+        } else if (context.Exception is ValidationException ex)
+        {
+            context.Result = new ObjectResult(ex.Message)
+            {
+                StatusCode = (int)HttpStatusCode.BadRequest
+            };
+            context.ExceptionHandled = true;
         }
     }
     }
