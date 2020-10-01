@@ -24,15 +24,15 @@ namespace CovidGtAPI.Services
             var casos = this.context.CasosCovid.Where(c => true);
             if (filtro.Depto != null)
             {
-                casos = casos.Where(c => c.Localizacion.Departamento.Equals(filtro.Depto, StringComparison.InvariantCultureIgnoreCase));
+                casos = casos.Where(c => c.Localizacion.Departamento == filtro.Depto);
             }
             if (filtro.Municipio != null)
             {
-                casos = casos.Where(c => c.Localizacion.Municipio.Equals(filtro.Municipio, StringComparison.InvariantCultureIgnoreCase));
+                casos = casos.Where(c => c.Localizacion.Municipio == filtro.Municipio);
             }
             if (filtro.Sexo != null)
             {
-                casos = casos.Where(c => c.Sexo.Equals(filtro.Sexo, StringComparison.InvariantCultureIgnoreCase));
+                casos = casos.Where(c => c.Sexo == filtro.Sexo);
             }
             if (filtro.Edad != null)
             {
