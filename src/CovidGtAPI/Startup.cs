@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CovidGtAPI.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +34,9 @@ namespace CovidGtAPI
 
             services.AddScoped<ICovidGtDbContext>(provider => provider.GetService<CovidGtDbContext>());
 
-            services.AddControllers();
+            services.AddControllers(options => {
+                options.Filters.Add(new HttpResponseExceptionFilter());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
