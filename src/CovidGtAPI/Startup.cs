@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CovidGtAPI.Common;
+using CovidGtAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +34,7 @@ namespace CovidGtAPI
                 b => b.MigrationsAssembly(typeof(CovidGtDbContext).Assembly.FullName)));
 
             services.AddScoped<ICovidGtDbContext>(provider => provider.GetService<CovidGtDbContext>());
-
+            services.AddScoped<ICasosCovidService, CasosCovidService>();
             services.AddControllers(options => {
                 options.Filters.Add(new HttpResponseExceptionFilter());
             });
