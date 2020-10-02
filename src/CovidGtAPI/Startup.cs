@@ -30,8 +30,10 @@ namespace CovidGtAPI
         {
 
             services.AddDbContext<CovidGtDbContext>(options => 
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly(typeof(CovidGtDbContext).Assembly.FullName)));
+                options.UseInMemoryDatabase(databaseName: "covidTest")
+                // options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"),
+                // b => b.MigrationsAssembly(typeof(CovidGtDbContext).Assembly.FullName))
+                );
 
             services.AddScoped<ICovidGtDbContext>(provider => provider.GetService<CovidGtDbContext>());
             services.AddScoped<ICasosCovidService, CasosCovidService>();

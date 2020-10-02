@@ -20,8 +20,9 @@ namespace CovidGtAPI
 
                 try
                 {
-                    var context = services.GetRequiredService<CovidGtDbContext>();
-                    context.Database.Migrate();
+                    
+                    // var context = services.GetRequiredService<CovidGtDbContext>();
+                    // context.Database.Migrate();
                 }
                 catch (Exception ex)
                 {

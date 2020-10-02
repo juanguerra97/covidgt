@@ -16,7 +16,7 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
-#*.db
+*.db
 *.db-shm
 *.db-wal
 
