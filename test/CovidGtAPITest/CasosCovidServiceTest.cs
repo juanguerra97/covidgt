@@ -31,6 +31,12 @@ namespace CovidGtAPITest
         }
 
         [Fact]
+        public void DebeFallar()
+        {
+            Assert.Equal(1, 2);
+        }
+
+        [Fact]
         public async Task Delete_NotFound()
         {
             await Assert.ThrowsAsync<NotFoundException>(() => this.service.Delete(1000));
